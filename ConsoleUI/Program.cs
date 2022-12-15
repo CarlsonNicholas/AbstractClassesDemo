@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,11 +34,33 @@ namespace ConsoleUI
 
             // Create a list of Vehicle called vehicles
 
+            List<Vehicle> vehicles = new List<Vehicle>();
+
+            Car car1 = new Car() {Year = "2000", Model = "F-150", Make = "Ford", HasTrunk = false };
+            Motorcycle mot1 = new Motorcycle() {Year = "2008", Model = "Mario Kart", Make = "Nintendo", HasSideCart = false};
+            Vehicle boat = new Car() {Year = "1797", Model = "American", Make = "Us Navy", HasTrunk= false};
+            Vehicle airplane = new Motorcycle() {Year = "2022", Model = "747", Make = "Boeing", HasSideCart = true};
+
+            
+
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * 
              * Set the properties with object initializer syntax
              */
+
+            vehicles.Add(car1);
+            vehicles.Add(boat);
+            vehicles.Add(airplane);
+            vehicles.Add(mot1);
+
+            foreach (var vehicle in vehicles) 
+            {
+                Console.WriteLine($"{vehicle.Year} | {vehicle.Make} | {vehicle.Model}");
+                vehicle.DriveVirtual();
+                vehicle.DriveAbstract();
+                Console.WriteLine();
+            }
 
             /*
              * Add the 4 vehicles to the list
